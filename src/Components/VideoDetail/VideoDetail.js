@@ -1,16 +1,19 @@
 import React from 'react';
-import './VideoDetail.css';
 
 const VideoDetail = ({video}) => {
+	if (!video) {
+		return <div>Loading...</div>;
+	}
+
+	const videoSRC = `https://www.youtube.com/embed/${video.id.videoId}`;
 	return (
-		<div className="item video-item">
-			<img
-				className="ui image video-image"
-				src={video.snippet.thumbnails.medium.url}
-				alt={video.snippet.description}
-			/>
-			<div className="content">
-				<div className="header">{video.snippet.title}</div>
+		<div>
+			<div className="ui embed">
+				<iframe src={videoSRC} title={video.snippet.title} />
+			</div>
+			<div className="ui segment">
+				<h4 className="ui header">{video.snippet.title}</h4>
+				<p className="description">{video.snippet.description}</p>
 			</div>
 		</div>
 	);
