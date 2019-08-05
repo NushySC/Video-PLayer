@@ -1,0 +1,12 @@
+.video-item {
+    display: flex;
+    flex: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ui.image {
+    max-width: 10em;
+    margin-right: 5em;
+}
